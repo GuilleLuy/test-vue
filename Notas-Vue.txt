@@ -1,0 +1,59 @@
+
+
+
+
+
+
+Admin en powershell
+Net user administrador /active:yes
+
+
+
+
+
+
+https://vuejs.org/v2/guide/installation.html#Explanation-of-Different-Builds
+
+Dev Build
+Important: the built files in GitHub’s /dist folder are only checked-in during releases. To use Vue from the latest source code on GitHub, you will have to build it yourself!
+
+git clone https://github.com/vuejs/vue.git node_modules/vue
+cd node_modules/vue
+npm install
+npm run build
+
+
+
+
+
+JAVASCRIPT:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+http://crockford.com/javascript/encyclopedia/
+http://devdocs.io/javascript/classes/constructor
+
+https://vuetifyjs.com/en/components/tabs
+
+REPOSITORIOS JS:
+https://cdnjs.com/
+
+
+https://carlosazaustre.com
+
+VUE JS:
+https://vuejs.org
+https://vuetifyjs.com/en/
+
+https://www.youtube.com/watch?v=L0F4OPPsm0c
+
+
+Para instalar un servidor:
+npm i -g serve
+
+Para correrlo:
+serve
+
+
+
+// SIMPLIFICACIONES/abreviaturas:
+v-bind = :
+v-on = @

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trabajos</title>
+</head>
+<body>
+<div id="app">
+    <button @click="fchangeVisibility()">Mostrar/Ocultar</button>
+    <!-- <ul v-if="mostrar"> -->
+        <work-list></work-list>
+    
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+<script>
+
+// componente: contiene el nombre y luego el objeto segun se requiera: datos internos, propiedades (atributos del componente) y métodos (funciones)  ('nombre', **objeto:** { propiedades: { prop: tipodepropiedad, propEj1:String, propEj2:Number}, template { `<div></div>`}, por ejemplo }
+
+    Vue.component( 'work-list', { // a este componente solo se añaden datos internos:
+        // por eso en lugar de prop de pasa data
+        // y al contrario que a como se hizo en la instancia de Vue que se tenia un objeto con todos los datos de la app, los datos en el componente se devuelven a través de una función:
+        data: function() {
+            return {
+                // los datos, que estaban en la instancia de Vue de la app y ahora son internos al componente "work-list". Ahora es una función que devuelve los datos
+                works: [
+                    { id:1, titulo:'Vialfe Web', imagen:'/img/vialfe.jpg' },
+                    { id:2, titulo:'Bounous Web', imagen:'/img/bounous.jpg' },
+                    { id:3, titulo:'Minfraestrura Web', imagen:'/img/minfraestructura.jpg' }
+                ]
+            }
+        },
+        template: ` 
+        <ul>
+            <app-work v-for="(work, index) in works" 
+                :key="index"
+                :id="work.id"
+                :imagen="work.imagen"
+                :titulo="work.titulo">
+            </app-work>
+        </ul>
+        `
+    })
+
+    
+    Vue.component( 'app-work', { // nombre del componente: conviene poner algo con - (como app-) para que vue no lo tome como una etiqueta html nativa
+        // 
+        // propiedades
+        props: {
+            imagen: String, 
+            titulo: String,
+            id: Number
+        },
+        template: `
+            <li>
+                <span><strong>ID: {{ id }}</strong></span>
+                <h2>{{ titulo }}</h2>
+                <p>{{ imagen }}</p>
+            </li>
+        `
+        
+    })
+
+    const app = new Vue({
+        el:'#app',
+        // datos
+        data: {
+            // condicional
+            mostrar: false,
+            // // los datos
+            // works: [
+            //     { id:1, titulo:'Vialfe Web', imagen:'/img/vialfe.jpg' },
+            //     { id:2, titulo:'Bounous Web', imagen:'/img/bounous.jpg' },
+            //     { id:3, titulo:'Minfraestrura Web', imagen:'/img/minfraestructura.jpg' }
+            // ]
+        },
+        // funciones
+        methods: {
+            fchangeVisibility: function() {
+                // togglea true y false
+                this.mostrar = !this.mostrar
+            }
+        }
+    })
+</script>
+</body>
+</html>
